@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+  stages{
+      stage("Get the code"){
+          steps{
+           git 'https://github.com/saboorahameem/chainapp.git'
+          }
+      }
+      stage ("publish"){
+        steps{
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\Users\\Admin\\OneDrive\\Documents\\Desktop\\chainapp', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      }
+      }
+  }
+}
